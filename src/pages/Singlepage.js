@@ -6,7 +6,7 @@ export default function Singlepage() {
     const navigate = useNavigate()
     const [post, setPost] = useState(null)
 
-    const goBack = () => navigate(-1)
+    const goBack = () => navigate(-1);
 
     useEffect(() => {
         fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
