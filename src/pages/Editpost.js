@@ -4,7 +4,7 @@ export default function Editpost() {
     const {id} = useParams();
     return (
         <div>
-            Editpost {id}
+            <h1>Editpost {id}</h1>
         </div>
     );
 }

@@ -1,10 +1,10 @@
 import {useLocation, useNavigate} from "react-router-dom";
 import {useAuth} from "../hook/useAuth";
 
-const Loginpage = () => {
+export const Loginpage = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const {signin} = useAuth();
+    const {signIn} = useAuth();
 
     const fromPage = location.state?.from?.pathname || '/';
 
@@ -13,7 +13,7 @@ const Loginpage = () => {
         const form = event.target;
         const user = form.username.value;
 
-        signin(user, () => navigate(fromPage), {replace: true})
+        signIn(user, () => navigate(fromPage), {replace: true})
     }
 
     return (
@@ -29,4 +29,3 @@ const Loginpage = () => {
     )
 }
 
-export {Loginpage}

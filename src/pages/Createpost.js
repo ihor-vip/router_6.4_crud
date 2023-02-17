@@ -1,7 +1,15 @@
-export default function Createpost() {
+import {useAuth} from "../hook/useAuth";
+import {useNavigate} from "react-router-dom";
+
+const Createpost = () => {
+    const {signOut} = useAuth();
+    const navigate = useNavigate();
     return (
         <div>
-            Createpost
+            <h1>Create post</h1>
+            <button onClick={() => signOut(() => navigate('/', {replace: true}))}>Log Out</button>
         </div>
-    );
-}   
+    )
+}
+
+export default Createpost ;
