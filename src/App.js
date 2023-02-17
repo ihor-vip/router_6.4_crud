@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import Singlepage from "./pages/Singlepage";
 import Createpost from "./pages/Createpost";
 import Editpost from "./pages/Editpost";
+import {Loginpage} from "./pages/Loginpage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                 <Route path='posts/:id' element={<Singlepage/>} />
                 <Route path='posts/:id/edit' element={<Editpost/>} />
                 <Route path='posts/new' element={<Createpost/>} />
+                <Route path='login' element={<Loginpage/>} />
                 <Route path='*' element={<Notfoundpage/>} />
             </Route>
           </Routes>
