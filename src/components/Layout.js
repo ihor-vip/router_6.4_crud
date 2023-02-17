@@ -1,17 +1,19 @@
-import {Link, Outlet} from "react-router-dom";
+import {NavLink, Outlet} from "react-router-dom";
 
 export default function Layout() {
     return (
       <>
           <header>
-              <Link to='/'>Home</Link>
-              <Link to='/posts'>Blog</Link>
-              <Link to='/about'>About</Link>
+              <NavLink to='/'>Home</NavLink>
+              <NavLink to='/posts'>Blog</NavLink>
+              <NavLink to='/about'>About</NavLink>
           </header>
 
-          <Outlet/>
+          <main className='container'>
+              <Outlet/>
+          </main>
 
-          <footer>2023</footer>
+          <footer className='container'>2023</footer>
       </>
     );
 }
