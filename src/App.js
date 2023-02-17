@@ -5,6 +5,8 @@ import Blogpage from "./pages/Blogpage";
 import Notfoundpage from "./pages/Notfoundpage";
 import Layout from "./components/Layout";
 import Singlepage from "./pages/Singlepage";
+import Createpost from "./pages/Createpost";
+import Editpost from "./pages/Editpost";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
                 <Route path='about' element={<Aboutpage/>} />
                 <Route path='posts' element={<Blogpage/>} />
                 <Route path='posts/:id' element={<Singlepage/>} />
+                <Route path='posts/:id/edit' element={<Editpost/>} />
+                <Route path='posts/new' element={<Createpost/>} />
                 <Route path='*' element={<Notfoundpage/>} />
             </Route>
           </Routes>

@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 import {useEffect, useState} from "react";
 
 export default function Singlepage() {
@@ -18,6 +18,7 @@ export default function Singlepage() {
                     <>
                         <h1>{post.title}</h1>
                         <p>{post.body}</p>
+                        <Link to={`/posts/${id}/edit`}>Edit this post</Link>
                     </>
                 )
             }
