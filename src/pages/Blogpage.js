@@ -13,6 +13,7 @@ export default function Blogpage() {
     return (
         <div>
             <h1>Our news</h1>
+            <Link to='/posts/new'>Add new post</Link>
             {
                 posts.map(post => (
                     <Link key={post.id} to={`/posts/${post.id}`}>
