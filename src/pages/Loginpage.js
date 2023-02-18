@@ -1,7 +1,7 @@
 import {useLocation, useNavigate} from "react-router-dom";
 import {useAuth} from "../hook/useAuth";
 
-export const Loginpage = () => {
+const Loginpage = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const {signIn} = useAuth();
@@ -19,7 +19,7 @@ export const Loginpage = () => {
     return (
         <div>
             <h1>Login page</h1>
-            <form onClick={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Name: <input name='username'/>
                 </label>
@@ -28,4 +28,6 @@ export const Loginpage = () => {
         </div>
     )
 }
+
+export {Loginpage}
 

@@ -1,7 +1,7 @@
 import {useParams, Link, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
 
-export default function Singlepage() {
+const Singlepage = () => {
     const {id} = useParams();
     const navigate = useNavigate()
     const [post, setPost] = useState(null)
@@ -28,4 +28,6 @@ export default function Singlepage() {
             }
         </div>
     );
-}   
+}
+
+export {Singlepage}

@@ -1,14 +1,14 @@
 import { Route, Routes, Navigate} from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import Aboutpage from "./pages/Aboutpage";
-import Blogpage from "./pages/Blogpage";
-import Notfoundpage from "./pages/Notfoundpage";
-import Layout from "./components/Layout";
-import Singlepage from "./pages/Singlepage";
-import Createpost from "./pages/Createpost";
-import Editpost from "./pages/Editpost";
-import {Loginpage} from "./pages/Loginpage";
+import {Layout} from "./components/Layout";
+import {Homepage} from "./pages/Homepage";
+import {Aboutpage} from "./pages/Aboutpage";
+import {Blogpage} from "./pages/Blogpage";
+import {Singlepage} from "./pages/Singlepage";
+import {Editpost} from "./pages/Editpost";
 import {RequireAuth} from "./hoc/RequireAuth";
+import {Createpost} from "./pages/Createpost";
+import {Loginpage} from "./pages/Loginpage";
+import {Notfoundpage} from "./pages/Notfoundpage";
 import {AuthProvider} from "./hoc/AuthProvider";
 
 function App() {

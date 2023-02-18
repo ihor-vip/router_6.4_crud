@@ -1,20 +1,21 @@
 import {Outlet} from "react-router-dom";
-import CustomLink from "./CustomLink";
-
-export default function Layout() {
+import {CustomLink} from "./CustomLink";
+const Layout = () => {
     return (
-      <>
-          <header>
-              <CustomLink to='/'>Home</CustomLink>
-              <CustomLink to='/posts'>Blog</CustomLink>
-              <CustomLink to='/about'>About</CustomLink>
-          </header>
+        <>
+            <header>
+                <CustomLink to='/'>Home</CustomLink>
+                <CustomLink to='/posts'>Blog</CustomLink>
+                <CustomLink to='/about'>About</CustomLink>
+            </header>
 
-          <main className='container'>
-              <Outlet/>
-          </main>
+            <main className='container'>
+                <Outlet/>
+            </main>
 
-          <footer className='container'>&copy; ReactRouter</footer>
-      </>
+            <footer className='container'>&copy; ReactRouter</footer>
+        </>
     );
 }
+
+export {Layout}
