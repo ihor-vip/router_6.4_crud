@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {Link, useSearchParams} from "react-router-dom";
+import {BlogFilter} from "../components/BlogFilter";
 
 const Blogpage = () => {
     const [posts, setPosts] = useState([]);
@@ -10,21 +11,6 @@ const Blogpage = () => {
 
     const startsFrom = latest ? 80 : 1;
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        const form = e.target;
-        const query = form.search.value;
-        const isLatest = form.latest.checked;
-
-        const params = {};
-
-        if (query.length) params.post = query;
-        if (isLatest) params.latest = true;
-
-        setSearchParams(params)
-    }
-
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(res => res.json())
@@ -34,14 +20,7 @@ const Blogpage = () => {
     return (
         <div>
             <h1>Our news</h1>
-
-            <form autoComplete='off' onSubmit={handleSubmit}>
-                <input type='search' name='search'/>
-                <label style={{padding: '0 1rem'}}>
-                    <input type='checkbox' name='latest'/> New only
-                </label>
-                <input type='submit' value='Search'/>
-            </form>
+            <BlogFilter postQuery={postQuery} latest={latest} setSearchParams={setSearchParams}/>
 
             <Link to='/posts/new'>Add new post</Link>
             {
