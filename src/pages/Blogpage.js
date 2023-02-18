@@ -31,7 +31,9 @@ const Blogpage = () => {
 
             <Link to='/posts/new'>Add new post</Link>
             {
-                posts.map(post => (
+                posts.filter(
+                    post => post.title.include(postQuery)
+                ).map(post => (
                     <Link key={post.id} to={`/posts/${post.id}`}>
                         <li>{post.title}</li>
                     </Link>
