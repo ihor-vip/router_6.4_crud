@@ -8,7 +8,10 @@ const Blogpage = () => {
     const postQuery = searchParams.get('post') || '';
 
     const handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        const form = e.target;
+        const query = form.search.value;
+        setSearchParams({post: query})
     }
 
     useEffect(() => {
@@ -22,7 +25,8 @@ const Blogpage = () => {
             <h1>Our news</h1>
 
             <form autoComplete='off' onSubmit={handleSubmit}>
-
+                <input type='search' name='search'/>
+                <input type='submit' value='Search'/>
             </form>
 
             <Link to='/posts/new'>Add new post</Link>
