@@ -46,7 +46,7 @@ const Blogpage = () => {
             <Link to='/posts/new'>Add new post</Link>
             {
                 posts.filter(
-                    post => post.title.includes(postQuery)
+                    post => post.title.includes(postQuery) && post.id >= startsFrom
                 ).map(post => (
                     <Link key={post.id} to={`/posts/${post.id}`}>
                         <li>{post.title}</li>
