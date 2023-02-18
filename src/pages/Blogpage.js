@@ -12,9 +12,17 @@ const Blogpage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         const form = e.target;
         const query = form.search.value;
-        setSearchParams({post: query})
+        const isLatest = form.latest.checked;
+
+        const params = {};
+
+        if (query.length) params.post = query;
+        if (isLatest) params.latest = true;
+
+        setSearchParams(params)
     }
 
     useEffect(() => {
@@ -30,7 +38,7 @@ const Blogpage = () => {
             <form autoComplete='off' onSubmit={handleSubmit}>
                 <input type='search' name='search'/>
                 <label style={{padding: '0 1rem'}}>
-                    <input type='checkbox' name='latest'/>
+                    <input type='checkbox' name='latest'/> New only
                 </label>
                 <input type='submit' value='Search'/>
             </form>
