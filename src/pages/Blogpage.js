@@ -1,8 +1,11 @@
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useSearchParams} from "react-router-dom";
 
 const Blogpage = () => {
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState([]);
+    const [searchParams, setSearchParams] = useSearchParams();
+
+    const postQuery = searchParams.get('post') || '';
 
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/posts')
