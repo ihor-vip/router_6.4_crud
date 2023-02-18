@@ -7,6 +7,10 @@ const Blogpage = () => {
 
     const postQuery = searchParams.get('post') || '';
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/posts')
             .then(res => res.json())
@@ -16,6 +20,11 @@ const Blogpage = () => {
     return (
         <div>
             <h1>Our news</h1>
+
+            <form autoComplete='off' onSubmit={handleSubmit}>
+
+            </form>
+
             <Link to='/posts/new'>Add new post</Link>
             {
                 posts.map(post => (
