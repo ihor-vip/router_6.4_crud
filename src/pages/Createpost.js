@@ -1,16 +1,16 @@
 import { useAuth } from '../hook/useAuth';
-import {redirect, useNavigate, useNavigation} from 'react-router-dom'
-import {NewPost} from "../components/NewPost";
+import { redirect, useNavigate, useNavigation } from 'react-router-dom'
+import NewPost from '../components/NewPost';
 
 const Createpost = () => {
     const {signout} = useAuth();
     const navigate = useNavigate();
-    const navigetion = useNavigation();
+    const navigation = useNavigation()
 
     return (
         <div>
             <h1>Create a post</h1>
-            <NewPost submitting={navigetion.state === 'submitting'}/>
+            <NewPost submitting={navigation.state === 'submitting'} />
             <button onClick={() => signout(() => navigate('/', {replace: true}))}>Log Out</button>
         </div>
     )
@@ -19,10 +19,11 @@ const Createpost = () => {
 const createPost = async ({title, body, userId}) => {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
-        headers: { 'Content-type': 'application-json'},
-        body: JSON.stringify({title, body, userId})
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title, body, userId })
     })
     const newPost = await res.json()
+
     return newPost
 }
 
@@ -38,4 +39,4 @@ const createPostAction = async ({request}) => {
     return redirect('/posts/' + post.id)
 }
 
-export {Createpost, createPostAction}
+export { Createpost, createPostAction }
