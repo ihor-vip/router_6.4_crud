@@ -1,10 +1,10 @@
-import {Link, useMatch} from "react-router-dom";
+import { Link, useMatch } from 'react-router-dom';
 
 const CustomLink = ({children, to, ...props}) => {
     const match = useMatch({
         path: to,
         end: to.length === 1,
-    })
+    });
 
     return (
         <Link
@@ -16,7 +16,7 @@ const CustomLink = ({children, to, ...props}) => {
         >
             {children}
         </Link>
-    );
+    )
 }
 
-export {CustomLink}
+export {CustomLink};

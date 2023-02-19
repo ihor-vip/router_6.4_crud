@@ -1,5 +1,5 @@
-import {Navigate, useLocation} from "react-router-dom";
-import {useAuth} from "../hook/useAuth";
+import { useLocation, Navigate } from 'react-router-dom';
+import { useAuth } from '../hook/useAuth'
 
 const RequireAuth = ({children}) => {
     const location = useLocation();
@@ -12,4 +12,4 @@ const RequireAuth = ({children}) => {
     return children;
 }
 
-export {RequireAuth}
+export {RequireAuth};
