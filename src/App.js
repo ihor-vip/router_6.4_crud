@@ -3,7 +3,7 @@ import { Route, Navigate, RouterProvider, createBrowserRouter, createRoutesFromE
 import { Homepage } from './pages/Homepage';
 import { About } from './pages/Aboutpage';
 import { blogLoader, Blogpage } from './pages/Blogpage';
-import { Createpost } from './pages/Createpost';
+import {Createpost, createPostAction} from './pages/Createpost';
 import { Editpost } from './pages/Editpost';
 import { postLoader, Singlepage } from './pages/Singlepage';
 import { Notfoundpage } from './pages/Notfoundpage';
@@ -30,7 +30,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <RequireAuth>
                 <Createpost />
             </RequireAuth>
-        }  />
+        } action={createPostAction} />
         <Route path="login" element={<LoginPage />} />
         <Route path="*" element={<Notfoundpage />} />
     </Route>
