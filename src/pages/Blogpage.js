@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Suspense } from 'react';
 import { Link, useLoaderData, useSearchParams, Await, defer } from 'react-router-dom';
 import { BlogFilter } from '../components/BlogFilter';
@@ -40,19 +41,25 @@ const Blogpage = () => {
 }
 
 async function getPosts() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const res = await fetch('https://jsonplaceholder.typicode.com/post')
 
-    if (!res.ok) {
-        throw new Response('', {status: res.status, statusText: 'Not found'})
-    }
+    // if (!res.ok) {
+    //     throw new Response('', {status: res.status, statusText: 'Not found'})
+    // }
 
     return res.json()
 }
 
 const blogLoader = async () => {
-    return defer({
-        posts: getPosts()
-    })
+    const posts = getPosts()
+
+    if (!posts.length) {
+       throw json({message: 'Not Found', reason: 'Wrong url'}, {status: 404})
+    }
+
+    return {
+        posts
+    }
 }
 
 export {Blogpage, blogLoader}
