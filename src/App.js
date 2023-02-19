@@ -30,7 +30,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <RequireAuth>
                 <Createpost />
             </RequireAuth>
-        } />
+        }  />
         <Route path="login" element={<LoginPage />} />
         <Route path="*" element={<Notfoundpage />} />
     </Route>

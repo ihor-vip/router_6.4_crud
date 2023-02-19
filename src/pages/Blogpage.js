@@ -40,7 +40,7 @@ const Blogpage = () => {
 }
 
 async function getPosts() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/postsss')
+    const res = await fetch('https://jsonplaceholder.typicode.com/postss')
 
     // if (!res.ok) {
     //     throw new Response('', {status: res.status, statusText: 'Not found!!!'})
