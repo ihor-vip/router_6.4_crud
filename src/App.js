@@ -1,4 +1,4 @@
-import {Route, Routes, Navigate, createBrowserRouter, createRoutesFromElements, RouterProvider} from "react-router-dom";
+import {Route, Navigate, createBrowserRouter, createRoutesFromElements, RouterProvider} from "react-router-dom";
 import {Layout} from "./components/Layout";
 import {Homepage} from "./pages/Homepage";
 import {Aboutpage} from "./pages/Aboutpage";
