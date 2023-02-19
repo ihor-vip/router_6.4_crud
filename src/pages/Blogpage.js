@@ -36,4 +36,6 @@ const Blogpage = () => {
     );
 }
 
-export {Blogpage}
+const blogLoader =
+
+export {Blogpage, blogLoader}

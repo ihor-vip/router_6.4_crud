@@ -2,7 +2,7 @@ import {Route, Routes, Navigate, createBrowserRouter, createRoutesFromElements, 
 import {Layout} from "./components/Layout";
 import {Homepage} from "./pages/Homepage";
 import {Aboutpage} from "./pages/Aboutpage";
-import {Blogpage} from "./pages/Blogpage";
+import {blogLoader, Blogpage} from "./pages/Blogpage";
 import {Singlepage} from "./pages/Singlepage";
 import {Editpost} from "./pages/Editpost";
 import {RequireAuth} from "./hoc/RequireAuth";
@@ -19,7 +19,7 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path='team' element={<p>Our team</p>} />
         </Route>
         <Route path='about-us' element={<Navigate to='/about' replace />} />
-        <Route path='posts' element={<Blogpage/>} />
+        <Route path='posts' element={<Blogpage/>} loader={blogLoader} />
         <Route path='posts/:id' element={<Singlepage/>} />
         <Route path='posts/:id/edit' element={<Editpost/>} />
         <Route path='posts/new' element={
