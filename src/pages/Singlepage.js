@@ -1,5 +1,16 @@
-import {useParams, Link, useNavigate, useLoaderData} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useParams, Link, useNavigate, useLoaderData, Await, useAsyncValue} from "react-router-dom";
+import {Suspense, useEffect, useState} from "react";
+
+const Post = () => {
+    const post = useAsyncValue();
+
+    return (
+        <>
+            <h1>{post.title}</h1>
+            <p>{post.body}</p>
+        </>
+    )
+}
 
 const Singlepage = () => {
     const {post, id} = useLoaderData();
@@ -10,18 +21,25 @@ const Singlepage = () => {
     return (
         <div>
             <button onClick={goBack}>Go back</button>
-            <h1>{post.title}</h1>
-            <p>{post.body}</p>
+            <Suspense fallback={<h2>Post is loading...</h2>}>
+               <Await resolve={post}>
+                    <Post/>
+               </Await>
+           </Suspense>
             <Link to={`/posts/${id}/edit`}>Edit this post</Link>
         </div>
     );
 }
 
+async function getPostById(id) {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    return res.json()
+}
+
 const postLoader = async ({params}) => {
     const id = params.id;
 
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-    return res.json()
+   return {post: getPostById(id), id}
 }
 
 export {Singlepage, postLoader}
