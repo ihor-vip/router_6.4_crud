@@ -10,15 +10,9 @@ const Singlepage = () => {
     return (
         <div>
             <button onClick={goBack}>Go back</button>
-            {
-                post && (
-                    <>
-                        <h1>{post.title}</h1>
-                        <p>{post.body}</p>
-                        <Link to={`/posts/${id}/edit`}>Edit this post</Link>
-                    </>
-                )
-            }
+            <h1>{post.title}</h1>
+            <p>{post.body}</p>
+            <Link to={`/posts/${id}/edit`}>Edit this post</Link>
         </div>
     );
 }
