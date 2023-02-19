@@ -1,18 +1,11 @@
-import {useParams, Link, useNavigate} from "react-router-dom";
+import {useParams, Link, useNavigate, useLoaderData} from "react-router-dom";
 import {useEffect, useState} from "react";
 
 const Singlepage = () => {
-    const {id} = useParams();
-    const navigate = useNavigate()
-    const [post, setPost] = useState(null)
+    const {post, id} = useLoaderData();
+    const navigate = useNavigate();
 
     const goBack = () => navigate(-1);
-
-    useEffect(() => {
-        fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
-            .then(res => res.json())
-            .then(data => setPost(data))
-    },[id])
 
     return (
         <div>
@@ -30,4 +23,11 @@ const Singlepage = () => {
     );
 }
 
-export {Singlepage}
+const postLoader = async ({params}) => {
+    const id = params.id;
+
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    return res.json()
+}
+
+export {Singlepage, postLoader}
