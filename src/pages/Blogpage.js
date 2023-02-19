@@ -1,6 +1,5 @@
-/* eslint-disable */
 import { Suspense } from 'react';
-import { Link, useLoaderData, useSearchParams, Await, defer } from 'react-router-dom';
+import { Link, useLoaderData, useSearchParams, Await, json } from 'react-router-dom';
 import { BlogFilter } from '../components/BlogFilter';
 
 const Blogpage = () => {
@@ -41,10 +40,10 @@ const Blogpage = () => {
 }
 
 async function getPosts() {
-    const res = await fetch('https://jsonplaceholder.typicode.com/post')
+    const res = await fetch('https://jsonplaceholder.typicode.com/postsss')
 
     // if (!res.ok) {
-    //     throw new Response('', {status: res.status, statusText: 'Not found'})
+    //     throw new Response('', {status: res.status, statusText: 'Not found!!!'})
     // }
 
     return res.json()
@@ -54,7 +53,7 @@ const blogLoader = async () => {
     const posts = getPosts()
 
     if (!posts.length) {
-       throw json({message: 'Not Found', reason: 'Wrong url'}, {status: 404})
+        throw json({message: 'Not Found', reason: 'Wrong url'}, {status: 404})
     }
 
     return {
